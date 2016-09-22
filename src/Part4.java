@@ -1,6 +1,5 @@
 
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -18,14 +17,15 @@ public class Part4
             // This regex matches words.
         	String new_string = "";
         	String x = "";
-            Pattern p = Pattern.compile("\\\"(.*)\\\"");
+            Pattern p = Pattern.compile("\"(.*?\\w)\"");
             while(s.hasNextLine())
             {
             	new_string = s.nextLine();
             	Matcher m = p.matcher(new_string);
             	while(m.find())
             	{
-            		System.out.println(m.group());
+            		String temp = m.group();
+            		System.out.println(temp.substring(1, temp.length()-1));
             	}
             }
             
